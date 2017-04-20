@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">Star Health</string>
+    <string name="banner_ad_unit_id">ca-app-pub-9999828043873612/6253371681</string>
+    <string name="interstitial_ad_unit_id">ca-app-pub-9999828043873612/1543970481</string>
+    <string name="facebook_app_id">1811627242447696</string>
+    <string name="notificationicon">NotificationIcon</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="cardia_care_plan"><![CDATA[
+<h1>Policy Benefits:</h1> <h3>(Applicable for Both Silver Plan and Gold Plan)</h3>
+<h2>Section 1: Hospitalization cover</h2>
+<p>Protects the insured for in patient hospitalisation expenses for a minimum of 24 hrs. These expenses include room, nursing and boarding charges, Surgeon, Anaesthetist, Medical Practitioner, Consultants, Specialist Fees, Oxygen, Operation Theatre, Diagnostics, imaging modalities and Cost of Medicines and Drugs, Oxygen, Blood, Operation theatre, Diagnostic and Imaging modalities.
+Ambulance charges for emergency transportation to hospital as per specified limits.
+Pre-Hospitalization expenses up to 30 days prior to admission in the hospital.
+Post-hospitalisation expenses incurred up to specified limits.
+405 Day-care treatments covered
+Pre-Existing Diseases / Illness are covered after 48 months of continuous coverage without break with any Indian Non-Life Insurer, under Section 1
+<h2>Section 2: Cardiac Section</h2>
+<p>After a waiting period of 90 days, this policy covers all treatments relating to Cardiac diseases. This waiting period will not apply for renewals.</p>
+
+<h2>Section 3: Out-Patient Expenses</h2>
+<p>The Company will pay the amount of such expenses as are reasonably and necessarily incurred at the network hospitals/diagnostic centres as an Out Patient, provided the policy is in force
+
+The limit of benefit under this Section is Rs.500/- per event subject to a maximum of Rs.1500/- per policy period, provided policy is in force. This benefit forms part of the Sum Insured.
+
+Section 4: Personal Accident
+If at any time during the Period of Insurance, the Insured Person shall sustain any bodily injury resulting solely and directly from an Accident caused by external, violent and visible means and if such accident causes death of the Insured Person within 12 Calendar months from the date of Accident, then the Company will pay the Sum Insured mentioned in the schedule as compensation</P>
+
+]]></string>
+    <string name="family_optima"><![CDATA[
+<h1>RECHARGE BENEFIT</h1>
+
+<h2>Recharge Benefit:</h2>
+<p>This benefit provides additional indemnity upto specified limits, when the sum insured under the policy is exhausted / exceeded. This can be utilized for any claim payable under the policy.</P>
+<p>More than 400 Day Care procedures</p>
+<p>Expenses incurred towards cost of Health Check up</p>
+<p>Coverage for New born Baby</p>
+<p>Coverage for Domiciliary hospitalization treatments</p>
+<p>Donor expenses for organ transplantation</p>
+
+<h2>Bonus:<h2>
+<p>Bonus in respect of a claim-free year of insurance is allowable upto the limits specified. The bonus so granted will be reduced in the same order in which it was given following a claim. However the Basic sum insured shall not be reduced.</p>
+
+<h2>Automatic Restoration of Sum Insured:</h2>
+<p>Immediately upon exhaustion of the limit of coverage during the policy period, there shall be an automatic restoration of the basic sum insured by 100% where the sum insured is Rs.3,00,000/- and above.</p>
+
+<h2>Policy Benefits:<h2>
+<p>Hospitalisation Cover Protects the insured for in - patient hospitalisation expenses for a minimum of 24 hrs.These expenses include room rent,nursing and boarding charges.
+Surgeon, Anesthetist, Medical Practitioner, Consultants, Specialist Fees, Anesthesia, Blood, Oxygen, Operation Theatre charges, Cost of Pacemaker, Cost of Medicine and drugs etc.</p>
+<p>Ambulance charges for emergency transportation upto a sum of Rs.750/- per hospitalization and overall limit of Rs.1500/- per policy period.</p>
+<p>Pre Hospitalisation expenses upto 60 days prior to admission in the hospital.</p>
+<p>Post Hospitalisation expenses upto 90 days after discharge from the hospital.</p>
+]]></string>
+    <string name="compfamilydetails">
+
+    </string>
+</resources>

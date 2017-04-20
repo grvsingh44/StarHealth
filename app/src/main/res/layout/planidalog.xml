@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_above="@+id/btPlanShare"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/x10dp"
+            android:paddingRight="@dimen/x10dp"
+            android:paddingLeft="@dimen/x10dp"
+            android:paddingBottom="@dimen/x5dp">
+
+            <TextView
+                android:id="@+id/tvPlanDetials"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#2e2e2e"
+                android:textSize="15sp"
+                android:textStyle="normal"/>
+        </ScrollView>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btPlanShare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start"
+            android:height="60dp"
+            android:text="Share"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:theme="@style/AppTheme.Button"
+            android:layout_alignParentBottom="true"/>
+</RelativeLayout>

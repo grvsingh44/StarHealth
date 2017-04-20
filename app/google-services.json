@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "224983526877",
+    "firebase_url": "https://starhealthold.firebaseio.com",
+    "project_id": "starhealthold",
+    "storage_bucket": "starhealthold.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224983526877:android:435fdcb8fab74f7e",
+        "android_client_info": {
+          "package_name": "com.bimahelpline.starhealth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224983526877-eg1hgdttkutnqicj6f3dkhm201k0bne3.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "224983526877-kf1kganbbja9tkunkt70bg1skb971k12.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrc3R40LsbDweSrcuSXHgVJhp7yEsQUXU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,110 @@
+package com.bimahelpline.starhealth;
+
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
+import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.bimahelpline.starhealth.custom.ConnectionDetector;
+
+public class Motor extends AppCompatActivity implements ConnectionDetector.ConnectivityReceiverListener {
+
+    private WebView mWebView;
+    private ProgressBar mProgressBar;
+    private FrameLayout mFrameLayout;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_motor);
+        mWebView = (WebView) findViewById(R.id.main_webview);
+        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
+        mFrameLayout = (FrameLayout) findViewById(R.id.framelayout1);
+        mWebView.setWebViewClient(new myWebClient());
+        checkConnection();
+        mWebView.getSettings().setJavaScriptEnabled(true);
+    }
+
+    private void mloadUrl() {
+        mWebView.loadUrl("https://www.renewbuy.com/cse/9313368533?source=app&an=com.bimahelpline.starhealth&utm_source=masako&utm_medium=Bimahelpline_Star_Health&utm_content=android");
+    }
+
+    private void checkConnection() {
+        boolean isConnected = ConnectionDetector.isConnected();
+        showSnack(isConnected);
+    }
+
+    @Override
+    public void onNetworkConnectionChanged(boolean isConnected) {
+        showSnack(isConnected);
+    }
+
+    private void showSnack(boolean isConnected) {
+        String message;
+        int color;
+        if (isConnected) {
+            message = "Good! Connected to Internet";
+            color = Color.WHITE;
+            mWebView.setVisibility(View.VISIBLE);
+            mProgressBar.setVisibility(View.VISIBLE);
+            mFrameLayout.setVisibility(View.GONE);
+            mloadUrl();
+        } else {
+            message = "Sorry ! Not Connected to Internet";
+            color = Color.RED;
+            mWebView.setVisibility(View.GONE);
+            mProgressBar.setVisibility(View.GONE);
+            mFrameLayout.setVisibility(View.VISIBLE);
+        }
+        RelativeLayout activity_motor = (RelativeLayout) findViewById(R.id.activity_motor);
+        Snackbar snackbar = Snackbar.make(activity_motor, message, Snackbar.LENGTH_LONG);
+        View sbView = snackbar.getView();
+        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+        textView.setTextColor(color);
+        snackbar.show();
+    }
+
+    private class myWebClient extends WebViewClient {
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            mProgressBar.setVisibility(View.GONE);
+            super.onPageFinished(view, url);
+        }
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            mProgressBar.setVisibility(View.VISIBLE);
+            view.loadUrl(url);
+            return true;
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MyApp.getInstance().setConnectivityListener(this);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {
+            mWebView.goBack();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+}

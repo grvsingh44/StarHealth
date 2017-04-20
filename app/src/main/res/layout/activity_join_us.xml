@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_join_us"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bimahelpline.starhealth.JoinUs">
+    <RelativeLayout
+        android:id="@+id/layout1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <WebView
+            android:id="@+id/main_webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ProgressBar
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"/>
+        <FrameLayout
+            android:id="@+id/framelayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content">
+
+                <TextView
+                    android:drawableTop="@drawable/wifi"
+                    android:layout_gravity="center"
+                    android:id="@+id/networktext"
+                    android:textAlignment="center"
+                    android:textSize="22sp"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textStyle="bold"
+                    android:text="Can't Connect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_below="@+id/networktext"
+                    android:layout_gravity="center"
+                    android:gravity="bottom"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textAlignment="center"
+                    android:text="Please check your network connection."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+        </FrameLayout>
+        <TextView
+            android:padding="0dp"
+            android:layout_margin="0dp"
+            android:id="@+id/shareButton"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="22sp"
+            android:background="#222"
+            android:textColor="@color/colorText"
+            android:layout_alignParentBottom="true"
+            android:text="Share with Friend"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"/>
+    </RelativeLayout>
+</RelativeLayout>
