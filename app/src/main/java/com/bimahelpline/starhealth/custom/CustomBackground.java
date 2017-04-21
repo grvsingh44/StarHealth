@@ -1,15 +1,13 @@
 package com.bimahelpline.starhealth.custom;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.Toast;
 
 import com.bimahelpline.starhealth.MainActivity;
-import com.bimahelpline.starhealth.R;
 import com.bimahelpline.starhealth.database.OneSignalDBHelper;
 import com.bimahelpline.starhealth.item.Item;
 import com.onesignal.NotificationExtenderService;
@@ -26,7 +24,8 @@ public class CustomBackground extends NotificationExtenderService {
     private Cursor mCursor;
     private Item item;
     public ArrayList<Item> mArrayList = new ArrayList<Item>();
-    private ShakingBell shakingBell;
+    private Activity activity;
+    ShakingBell shakingBell;
 
     @Override
     protected boolean onNotificationProcessing(OSNotificationReceivedResult notification) {
@@ -52,7 +51,7 @@ public class CustomBackground extends NotificationExtenderService {
         int count = getCount();
         Toast.makeText(this, "call from Main activity : database close", Toast.LENGTH_SHORT).show();
         if (count > 0){
-            shakingBell.shake(count);
+            MainActivity.shakingBell.shake(count);
         }
     }
 

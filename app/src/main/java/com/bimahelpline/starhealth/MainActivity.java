@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity{
     final ArrayList<Item> itemArrayList = new ArrayList<Item>();
     int _id;
     private OneSignalDBHelper mDatabase;
+    public static ShakingBell shakingBell;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity{
         ActivityCompat.requestPermissions(MainActivity.this, new String[]{
                 Manifest.permission.CALL_PHONE},1);
 
-        final ShakingBell shakingBell = (ShakingBell)findViewById(R.id.shakeBell);
+        shakingBell = (ShakingBell)findViewById(R.id.shakeBell);
         shakingBell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
