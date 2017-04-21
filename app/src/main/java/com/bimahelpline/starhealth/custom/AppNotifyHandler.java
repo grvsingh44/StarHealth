@@ -9,6 +9,7 @@ public class AppNotifyHandler implements OneSignal.NotificationReceivedHandler {
 
     public Context mContext;
 
+
     @Override
     public void notificationReceived(OSNotification notification) {
 

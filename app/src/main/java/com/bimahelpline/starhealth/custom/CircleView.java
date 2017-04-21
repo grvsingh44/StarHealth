@@ -64,7 +64,6 @@ public class CircleView extends View {
         super.onDraw(canvas);
         tempCanvas.drawCircle(maxCircleSize, maxCircleSize, maxCircleSize - 4, circlePaint);
 
-
         tempCanvas.drawCircle(maxCircleSize, maxCircleSize, maxCircleSize - 4, circlePaint2);
 
         textPaint.setStyle(Paint.Style.FILL);

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
-import android.widget.Toast;
 
 import com.bimahelpline.starhealth.MainActivity;
 import com.bimahelpline.starhealth.database.OneSignalDBHelper;
@@ -19,46 +18,51 @@ import java.util.ArrayList;
 
 public class CustomBackground extends NotificationExtenderService {
 
+    public ArrayList<Item> mArrayList = new ArrayList<Item>();
+    ShakingBell shakingBell;
     private String i;
     private OneSignalDBHelper mDatabase;
     private Cursor mCursor;
     private Item item;
-    public ArrayList<Item> mArrayList = new ArrayList<Item>();
     private Activity activity;
-    ShakingBell shakingBell;
+    private int count;
 
     @Override
     protected boolean onNotificationProcessing(OSNotificationReceivedResult notification) {
-        OverrideSettings overrideSettings = new OverrideSettings();
-        overrideSettings.extender = new NotificationCompat.Extender() {
-            @Override
-            public NotificationCompat.Builder extend(NotificationCompat.Builder builder) {
-                return builder.setColor(new BigInteger("FF00FF00", 16).intValue());
-            }
-        };
-        displayNotification(overrideSettings);
+        boolean inApp = notification.isAppInFocus;
+        if (!inApp) {
+            OverrideSettings overrideSettings = new OverrideSettings();
+            overrideSettings.extender = new NotificationCompat.Extender() {
+                @Override
+                public NotificationCompat.Builder extend(NotificationCompat.Builder builder) {
+                    return builder.setColor(new BigInteger("FF00FF00", 16).intValue());
+                }
+            };
+            displayNotification(overrideSettings);
+        } else {
+            makeShake();
+        }
         i = notification.payload.notificationID;
         return true;
     }
 
     public void onStart(@Nullable Intent intent, int startId) {
         super.onStart(intent, startId);
-        Toast.makeText(this, "New Notification", Toast.LENGTH_SHORT).show();
-        makeShake();
     }
 
+
     public void makeShake(){
-        int count = getCount();
-        Toast.makeText(this, "call from Main activity : database close", Toast.LENGTH_SHORT).show();
+        count = getCount();
         if (count > 0){
             MainActivity.shakingBell.shake(count);
         }
+        mDatabase.close();
     }
 
     public int getCount(){
         mDatabase = new OneSignalDBHelper(this);
         mDatabase.openOnsignalDB();
-        mDatabase.getWritableDatabase();
+        mDatabase.getReadableDatabase();
         String countQuery = "select opened from notification where opened = 0";
         Cursor cursor = mDatabase.queryNotification(countQuery);
         int cnt = cursor.getCount();
