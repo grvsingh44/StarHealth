@@ -4,8 +4,6 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,31 +16,26 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.bimahelpline.starhealth.activity.NotificationTray;
-import com.bimahelpline.starhealth.custom.CustomBackground;
 import com.bimahelpline.starhealth.custom.ShakingBell;
 import com.bimahelpline.starhealth.database.DatabaseHelper;
 import com.bimahelpline.starhealth.database.OneSignalDBHelper;
 import com.bimahelpline.starhealth.item.Item;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity{
 
     private static final int PERMS_REQUEST_CODE = 123;
-    private CardView mIndividual, mFamily,mHospital,mCard4, mCard5, mCard6;
-    private DatabaseHelper mDatabaseHelper;
-    String SHARED_PREF = "star_pref";
-    final ArrayList<Item> itemArrayList = new ArrayList<Item>();
-    int _id;
-    private OneSignalDBHelper mDatabase;
     public static ShakingBell shakingBell;
+    final ArrayList<Item> itemArrayList = new ArrayList<Item>();
+    String SHARED_PREF = "star_pref";
+    int _id;
+    private CardView mIndividual, mFamily, mHospital, mCard4, mCard5, mCard6;
+    private DatabaseHelper mDatabaseHelper;
+    private OneSignalDBHelper mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +46,11 @@ public class MainActivity extends AppCompatActivity{
         setTitle("Star Health");
         getSupportActionBar().openOptionsMenu();
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544~3347511713");
-        AdView adView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice("AA94D1D52E269355E240E780B711F71A")
-                .build();
-        adView.loadAd(adRequest);
+//        AdView adView = (AdView) findViewById(R.id.adView);
+//        AdRequest adRequest = new AdRequest.Builder()
+//                .addTestDevice("AA94D1D52E269355E240E780B711F71A")
+//                .build();
+//        adView.loadAd(adRequest);
         mDatabaseHelper = new DatabaseHelper(this);
         mDatabaseHelper.createDatabase();
 

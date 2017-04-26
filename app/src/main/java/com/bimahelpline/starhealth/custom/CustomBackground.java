@@ -1,6 +1,5 @@
 package com.bimahelpline.starhealth.custom;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.support.annotation.Nullable;
@@ -13,41 +12,31 @@ import com.onesignal.NotificationExtenderService;
 import com.onesignal.OSNotificationReceivedResult;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
 
 
 public class CustomBackground extends NotificationExtenderService {
 
-    public ArrayList<Item> mArrayList = new ArrayList<Item>();
-    ShakingBell shakingBell;
-    private String i;
     private OneSignalDBHelper mDatabase;
-    private Cursor mCursor;
     private Item item;
-    private Activity activity;
     private int count;
 
     @Override
     protected boolean onNotificationProcessing(OSNotificationReceivedResult notification) {
         boolean inApp = notification.isAppInFocus;
-        if (!inApp) {
-            OverrideSettings overrideSettings = new OverrideSettings();
-            overrideSettings.extender = new NotificationCompat.Extender() {
-                @Override
-                public NotificationCompat.Builder extend(NotificationCompat.Builder builder) {
-                    return builder.setColor(new BigInteger("FF00FF00", 16).intValue());
-                }
-            };
-            displayNotification(overrideSettings);
-        } else {
-            makeShake();
-        }
-        i = notification.payload.notificationID;
+        OverrideSettings overrideSettings = new OverrideSettings();
+        overrideSettings.extender = new NotificationCompat.Extender() {
+            @Override
+            public NotificationCompat.Builder extend(NotificationCompat.Builder builder) {
+                return builder.setColor(new BigInteger("FF00FF00", 16).intValue());
+            }
+        };
+        displayNotification(overrideSettings);
         return true;
     }
 
     public void onStart(@Nullable Intent intent, int startId) {
         super.onStart(intent, startId);
+        makeShake();
     }
 
 
@@ -69,22 +58,22 @@ public class CustomBackground extends NotificationExtenderService {
         cursor.close();
         return cnt;
     }
-
-    public void loadData() {
-        mDatabase = new OneSignalDBHelper(getApplicationContext());
-        mDatabase.openOnsignalDB();
-        mDatabase.getWritableDatabase();
-        mCursor = mDatabase.queryNotification("select * from notification order by datetime(created_time) DESC LIMIT 10");
-        if (mCursor != null) {
-            while (mCursor.moveToNext()) {
-                item = new Item();
-                item.setTitle(mCursor.getString(8));
-                item.setBody(mCursor.getString(9));
-                item.setTime(mCursor.getLong(11));
-                mArrayList.add(item);
-            }
-        }
-    }
+//
+//    public void loadData() {
+//        mDatabase = new OneSignalDBHelper(getApplicationContext());
+//        mDatabase.openOnsignalDB();
+//        mDatabase.getWritableDatabase();
+//        mCursor = mDatabase.queryNotification("select * from notification order by datetime(created_time) DESC LIMIT 10");
+//        if (mCursor != null) {
+//            while (mCursor.moveToNext()) {
+//                item = new Item();
+//                item.setTitle(mCursor.getString(8));
+//                item.setBody(mCursor.getString(9));
+//                item.setTime(mCursor.getLong(11));
+//                mArrayList.add(item);
+//            }
+//        }
+//    }
 
 }
 
