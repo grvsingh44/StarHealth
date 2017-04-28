@@ -55,4 +55,20 @@ Surgeon, Anesthetist, Medical Practitioner, Consultants, Specialist Fees, Anesth
     <string name="compfamilydetails">
 
     </string>
+    <string name="title_activity_main22">Main22Activity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="appbg">appBG</string>
+    <string name="individual">Individual</string>
+    <string name="familybg">familyBG</string>
+    <string name="family">Family</string>
+    <string name="hospital_list">Hospital List</string>
+    <string name="other_insurance">Other Insurance</string>
+    <string name="join_us">Join Us</string>
+    <string name="news_amp_article"><![CDATA[News & Article]]></string>
+    <string name="indibg">indiBG</string>
+    <string name="personal_accident">Personal Accident</string>
+    <string name="travel">Travel</string>
+    <string name="motor">Motor</string>
 </resources>

@@ -22,6 +22,8 @@ import com.bimahelpline.starhealth.custom.ShakingBell;
 import com.bimahelpline.starhealth.database.DatabaseHelper;
 import com.bimahelpline.starhealth.database.OneSignalDBHelper;
 import com.bimahelpline.starhealth.item.Item;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
@@ -46,11 +48,11 @@ public class MainActivity extends AppCompatActivity{
         setTitle("Star Health");
         getSupportActionBar().openOptionsMenu();
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544~3347511713");
-//        AdView adView = (AdView) findViewById(R.id.adView);
-//        AdRequest adRequest = new AdRequest.Builder()
-//                .addTestDevice("AA94D1D52E269355E240E780B711F71A")
-//                .build();
-//        adView.loadAd(adRequest);
+        AdView adView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("AA94D1D52E269355E240E780B711F71A")
+                .build();
+        adView.loadAd(adRequest);
         mDatabaseHelper = new DatabaseHelper(this);
         mDatabaseHelper.createDatabase();
 
@@ -92,7 +94,7 @@ public class MainActivity extends AppCompatActivity{
         mHospital.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Hospital.class);
+                Intent i = new Intent(MainActivity.this, Other.class);
                 startActivity(i);
             }
         });
@@ -100,7 +102,7 @@ public class MainActivity extends AppCompatActivity{
         mCard4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Motor.class);
+                Intent i = new Intent(MainActivity.this, Hospital.class);
                 startActivity(i);
             }
         });
